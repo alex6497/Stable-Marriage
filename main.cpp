@@ -1,43 +1,90 @@
+/*
+Notes before starting:
+  0 is the most preferable, 2 is the least (for a 3 men and woman)
+*/
 #include <iostream>
 using namespace std;
 
-bool ok(int q[], int col) { // Finish this code
-	static int mp[3][3] = { { 0,2,1 },  	 // Man#0's preferences
-							{ 0,2,1 },		// Man#1's preferences
-							{ 1,2,0 } };	// Man#2's preferences
-						
-	static int wp[3][3] = { { 2,1,0 },		// Woman#0's preferences
-							{ 0,1,2 },		// Woman#1's preferences
-							{ 2,0,1 } };	 // Woman#2's preferences
+struct Solution{
 
-	/*Similar to 1D Queens, use a loop to check the array.
-	  Inside the loop we chould check for 3 conditions
-	  First condition checks is the same women is married to two different man *hint we need to check if two things are equal*
-	  Second condition checks if (Man#i) and (Man#c's wife) both like each other more than their own spouse
-	  Third condition checks if (Man#c) and (Man#i's wife) both like each other more than their own spouse
+  int n = 3;
+  int matching[3] = {}; // initialize all elements as 0.
+                            //male prefference for woman
+  int mp[3][3] = {{0,2,1},   //man 0 likes woman 0 the most and woman 1 the least.
+                  {0,2,1},
+                  {1,2,0}};   
+  
+  int wp[3][3] = {{2,1,0},
+                  {0,1,2},
+                  {2,0,1}};
+                  
+  void printMatching(){
+    for ( int i = 0; i < n; i++ ){
+      cout << "male: " << i << " and female: " << matching[i] << endl;
+    }
+    cout << endl;
+  }
 
-	  mp[i][j] tells you how much Man#i likes Woman#j. (0 = favorite; 2 = least favorite) 
-	  wp[i][j] tells you how much Woman#i likes Man#j.
+  bool isAlreadyTaken(int currMale){
+    
+  }
 
-	  mp[i][q[i]] tells you how much Man#i likes his own wife. 
-	  mp[i][q[c]] tells you how much Man#i likes Man#c's wife. 
-	  wp[q[i]][i] tells you how much Man#i's wife likes Man#i. 
-	  wp[q[i]][c] tells you how much Man#i's wife likes Man#c. 
-	  If mp[i][q[c]] < mp[i][q[i]], it means that Man#i likes Man#c's wife more than his own wife
-	*/
+  bool isStable(int curr){
+    
+  }
 
-	//if we pass the loop, what do we return?
-}
 
-void print(int q[]) {
-	static int solution = 0;
-	cout << "Solution #" << ++solution << ":\nMan\tWoman\n";
-	//Finish this print function
-}
+  bool ok(int currMale){
+    if (!isAlreadyTaken(currMale) and isStable(currMale)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
+  void solve(){
+
+    //Start with the first male
+    int currMale = 0;
+    // While we have not backtracked beyond the first male:
+    while (/* */){
+      
+      // If all the people have been matched, 
+      if(/* */){
+        // print 
+        // backtrack
+        continue;
+      }
+
+      // If the current male has been matched with all the avalible women
+      if ( /* */ ){
+        //reset current male
+        //backtrack
+        continue;
+      }
+
+      //check if the matching is stable
+      if( /* */ ){
+          // move to the next man
+      }
+      else{
+        // pair the man with the next avalible woman
+
+      }
+    }
+  }
+
+
+
+};
+
 
 
 int main() {
-	//Write the main function.
-	//The main function is exactly the same as 1D Queens. EXCEPT the array size is different.
-	return 0;
+
+  Solution s;
+  s.solve();
+  std::cout << "finished" <<endl;
 }
